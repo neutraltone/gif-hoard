@@ -16,18 +16,30 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <button v-on:click="logout">Logout</button>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'hello',
-  data() {
-    return {
-      msg: 'Welcome to Your Vue.js PWA',
-    };
-  },
-};
+  import firebase from 'firebase';
+  /* eslint-disable object-shorthand */
+  /* eslint-disable func-names */
+  /* eslint-disable no-unused-vars */
+  export default {
+    name: 'hello',
+    data() {
+      return {
+        msg: 'Welcome to Your Vue.js PWA',
+      };
+    },
+    methods: {
+      logout: function () {
+        firebase.auth().signOut().then(() => {
+          this.$router.replace('login');
+        });
+      },
+    },
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
