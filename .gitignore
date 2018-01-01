@@ -16,4 +16,6 @@ selenium-debug.log
 *.sln
 
 # Configuration files
-*.env.js
+test.env.js
+dev.env.js
+prod.env.js
